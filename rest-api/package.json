@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "micro-dev",
+    "start": "micro"
+  },
+  "dependencies": {
+    "micro": "^9.3.0",
+    "micro-cors": "^0.1.0",
+    "micro-get": "^0.1.1",
+    "node-fetch": "^2.1.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^2.2.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js -x node --inspect -r dotenv/config index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.13.1",
+    "node-fetch": "^2.1.2"
+  }
+}

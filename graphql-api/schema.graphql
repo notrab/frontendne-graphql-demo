@@ -1,0 +1,13 @@
+type Query {
+  faces(limit: Int, offset: Int, gender: Gender): [Face!]!
+}
+
+type Face {
+  name: String!
+  photo: String!
+}
+
+enum Gender {
+  male
+  female
+}
