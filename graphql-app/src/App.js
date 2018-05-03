@@ -1,39 +1,26 @@
-import React from 'react'
-import { Container, List, Image, Loader } from 'semantic-ui-react'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import React, { Component } from 'react'
+import { Container, Divider } from 'semantic-ui-react'
 
-const QUERY = gql`
-  query {
-    faces(limit: 15) {
-      name
-      photo
-    }
+import Feed from './Feed'
+import Filter from './Filter'
+
+class App extends Component {
+  state = {
+    limit: 10,
+    offset: 0
   }
-`
 
-const App = () => (
-  <Container text>
-    <Query query={QUERY}>
-      {({ data, error, loading }) => {
-        if (error) return <p>Error</p>
-        if (loading) return <Loader active />
+  _onChange = (e, data) => this.setState({ [data.name]: data.value })
 
-        return (
-          <List>
-            {data.faces.map((face, index) => (
-              <List.Item key={index}>
-                <Image avatar src={face.photo} />
-                <List.Content>
-                  <List.Header>{face.name}</List.Header>
-                </List.Content>
-              </List.Item>
-            ))}
-          </List>
-        )
-      }}
-    </Query>
-  </Container>
-)
+  render() {
+    return (
+      <Container text>
+        <Filter onChange={this._onChange} {...this.state} />
+        <Divider />
+        <Feed {...this.state} />
+      </Container>
+    )
+  }
+}
 
 export default App

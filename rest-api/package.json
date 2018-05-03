@@ -2,7 +2,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "micro-dev",
+    "dev": "micro-dev -p 4000",
     "start": "micro"
   },
   "dependencies": {
